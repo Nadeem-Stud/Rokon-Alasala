@@ -23,7 +23,7 @@ const BASE_PRICES = {
 // ** أسعار الفنادق لـ (اسطنبول وأنطاليا) لكل ليلة ولكل شخص (كمثال) **
 const hotelPrices = {
     istanbul: [
-        { name: "GRAND MILAN - Fatih ", pricePerNight: 50,stars:3 }, // 50 JOD
+        { name: "GRAND MILAN - Fatih ", pricePerNight: 12,stars:3 }, // 50 JOD
         { name: "BAYKAL - Fatih", pricePerNight: 14,stars:3 },
         { name: " KAYA MADRID - fatih ", pricePerNight: 14,stars:3 },
         { name: " UNIQUE SUITE - Takism ", pricePerNight: 18,stars:3 },
