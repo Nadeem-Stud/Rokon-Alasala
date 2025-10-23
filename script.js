@@ -383,5 +383,4 @@ document.addEventListener('DOMContentLoaded', () => {
     checkFormValidity('beirut');
     checkFormValidity('batumi');
     checkFormValidity('tbilisi');
-
 });
