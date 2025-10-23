@@ -330,7 +330,7 @@ function sendInquiryEmail(city) {
     const phone = document.getElementById(`${city}-phone`).value;
     
     // 🚨 استبدل هذا الرقم برقم هاتفك المخصص لاستقبال الطلبات (مع رمز الدولة وبدون رموز + أو -)
-    const phoneNumber = '+962799809646'; 
+    const phoneNumber = '+962777938441'; 
 
     // إعداد محتوى الرسالة باللغة العربية
     let messageBody = `*طلب حجز جديد* - رحلة ${city.toUpperCase()}\n\n`;
@@ -383,4 +383,5 @@ document.addEventListener('DOMContentLoaded', () => {
     checkFormValidity('beirut');
     checkFormValidity('batumi');
     checkFormValidity('tbilisi');
+
 });
