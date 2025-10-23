@@ -1,4 +1,4 @@
-/* تنسيقات أساسية للخلفية في ملف style.css */
+/* تنسيقات أساسية للخلفية */
 body {
     direction: rtl; 
     font-family: 'Arial', sans-serif;
@@ -6,289 +6,297 @@ body {
     padding: 0;
     color: #333;
     
-    /* ***** خصائص الخلفية الجديدة (النمط) ***** */
-    background-image: url('background.jpg'); /* <--- تم تحديث الاسم هنا! */
+    background-image: url('background.jpg');
     background-size: auto;       
     background-repeat: repeat;   
     background-attachment: scroll; 
-    
-    /* لون احتياطي فاتح في حال لم يتم تحميل الصورة */
     background-color: #ffffff; 
 }
 
 /* تنسيق رأس الصفحة الرئيسي */
 #main-header {
-    background-color: #ffffff; /* لون أخضر داكن للسياحة */
+    background-color: #ffffff; 
     color: rgb(182, 146, 28);
     padding: 50px 0;
     text-align: center;
-    border-bottom: 5px solid #554b39; /* خط برتقالي ذهبي مميز */
+    border-bottom: 5px solid #554b39; 
     position: relative;
 }
 
 #main-header h1 {
-    font-size: 3.8em; /* حجم كبير لاسم الشركة */
+    font-size: 3.8em;
     margin: 0;
     font-weight: bold;
     letter-spacing: 1.5px;
 }
 
-/* اللوجو */
-/* اللوجو - تعديل الأبعاد ليتناسب مع اللوغو الأفقي الجديد */
-/* في ملف style.css (تحت #logo) */
-/* اللوغو - التعديل لتكبير الحجم */
 #logo {
-    width: 320px;    /* تم زيادة العرض */
-    height: auto;    /* للحفاظ على نسب الصورة */
     position: absolute;
-    right: 20px;
     top: 50%;
+    right: 50px; 
     transform: translateY(-50%);
-    border-radius: 0; 
+    width: 320px; 
+    height: auto;
 }
 
-/* تنسيق الصفحات والمحتوى */
+/* تنسيق الحاويات الرئيسية */
+#content {
+    padding: 100px;
+    max-width: 2000px;
+    margin: 40px auto;
+    background-color:
+    box-shadow 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
 .page {
-    display: none; /* إخفاء جميع الصفحات افتراضياً */
-    padding: 150px;
+    display: none;
+    padding: 20px;
 }
 
 .page.active {
-    display: block; /* إظهار الصفحة النشطة */
+    display: block;
 }
 
-/* تنسيق الأزرار في الصفحة الرئيسية */
+/* تنسيق صفحة البداية والأزرار */
 .buttons-container {
-    text-align: center;
-    padding-top: 100px;
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+    flex-wrap: wrap;       /* ✅ مهم: السماح للأزرار بالانتقال إلى سطر جديد */
+    gap: 20px;             /* ✅ مهم: إضافة تباعد بين الأزرار (عمودي وأفقي) */
 }
 
 .buttons-container button {
-    background-color: #9c9b98;
-    color: #fcfdfd;
+    background-color: #6d665d;
+    color: white;
     border: none;
-    padding: 25px 120px;
-    margin: 60px;
+    padding: 20px 40px;
     font-size: 2.5em;
     cursor: pointer;
-    border-radius: 100px;
+    border-radius: 500px;
     transition: background-color 0.3s, transform 0.2s;
-    width: 800px;
-    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    width: 30%;
+    text-align: center;
+    min-width: 200px; /* ✅ إضافة عرض أدنى لضمان عدم التضارب */
 }
 
 .buttons-container button:hover {
-    background-color: #8b8980;
-    transform: translateY(-10px);
+    background-color: #c2a267;
+    transform: translateY(px);
 }
 
-/* تنسيق رأس الصفحة للمدينة (اسطنبول، أنطاليا، طرابزون) */
+/* تنسيق رأس الصفحة داخل المدينة */
 .city-header {
-    text-align: center;
-    padding-bottom: -20px;
-    border-bottom: 3px solid #ddd;
-    position: relative;
+    display: flex;
+    padding-top: 10px; /* جرب قيمة أقل، مثل 5px أو 10px */
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #b18a3e;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .city-header h2 {
-    font-size: 4em; /* كلمة اسطنبول/أنطاليا/طرابزون بحجم كبير */
-    color: #1a1816;
+    font-size: 5em;
+    color: #91753b;
     margin: 0;
-    font-weight: 800;
+    
 }
 
 .back-button {
-    position: absolute;
-    left: 15px;
-    top: -10px;
-    background-color: #777673;
-    color: #f3f0f0;
-    border: none;    
-    padding: 15px 120px;
+    background-color: #443939;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 60px;
+    font-size: 1.6em;
     cursor: pointer;
-    border-radius: 60px;
-    /* ***** التعديل هنا: تكبير حجم الخط ***** */
-    font-size: 1.8em; /* أو 1.2em حسب رغبتك في تكبيره */
-    font-weight: bold; /* لزيادة وضوح النص */
+    border-radius: 90px;
+    transition: background-color 0.3s;
+    padding-top: 10px;
 }
 
-/* تخطيط الصفحة للمدن (شرح + حاسبة) */
+.back-button:hover {
+    background-color: #f3efef;
+}
+
+/* تنسيق تخطيط المدينة (تفاصيل + حاسبة) */
 .city-layout {
     display: flex;
-    justify-content: space-between;
-    padding-top: 30px;
-    gap: 80px;
+    gap: 30px;
+    align-items: flex-start;
 }
 
+/* تفاصيل الرحلة */
 .trip-details {
-    flex: 1.5; /* تأخذ مساحة أكبر لشرح الرحلة */
-    background-color: white;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    background-color: #f0f4f8; /* (تم تعديله ليتناسب مع اللوجو) */
-    margin-bottom: 10px;
-    padding: 10px;
-    border-right: 5px solid #333333; /* الشريط الداكن على اليمين */
-    border-radius: 4px;
-    font-size: 1.5em; /* حجم الخط الحالي */
-
-}
-
-.calculator-container {
-    flex: 1.2; /* تأخذ مساحة أقل للحاسبة */
-    background-color: #f9f9f9;
+    flex: 2;
+    background-color: #fff;
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border: 2px solid #494948;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid #ddd;
+    max-width: 45%;
 }
 
-/* تنسيق عناصر الحاسبة */
-.calculator-form label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #f00303;
-    font-size:01.6em ;
-}
-
-.calculator-form select,
-.calculator-form input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 2.5em;
-}
-
-.calculator-form button {
-    width: 100%;
-    margin-top: 20px;
-    padding: 12px;
-    background-color: #00796b;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.calculator-form button:hover {
-    background-color: #004d40;
-}
-
-/* تنسيق مخرج السعر (OUTPUT) */
-.result-box {
-    text-align: center;
-    margin-top: 30px;
-    padding: 15px;
-    border: 2px dashed #004d40;
-    border-radius: 8px;
-}
-
-.result-box h4 {
-    margin: 5px 0;
-    color: #1f4d00;
-}
-
-.result-box p {
+.trip-details h3 {
+    color: #b18a3e;
+    border-bottom: 2px solid #0f0f0f;
+    padding-bottom: 10px;
     font-size: 2em;
-    color: #4cb60f;
-    font-weight: bold;
-    margin: 5px 0;
+    margin-top: 0;
 }
 
-.currency-note {
-    font-size: 0em;
-    color: #666;
-}
-
-/* تنسيق قائمة تفاصيل الرحلة */
 .trip-details ul, .trip-details ol {
     list-style: none;
-    padding-right: 0;
+    padding: 0;
+    font-size: 1.9em;
 }
 
 .trip-details li {
-    background-color: #e0f2f1;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-right: 5px solid #4d0000;
-    border-radius: 4px;
-    font-size: 1.6em;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgb(2, 2, 2)
 }
 
-.detail-number {
+.trip-details li:last-child {
+    border-bottom: none;
+}
+
+/* تنسيق الحاسبة */
+.calculator-container {
+    flex: 1;
+    background-color: rgb(230, 227, 227);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 2px solid #b18a3e;
+    min-width: 300px;
+}
+
+.calculator-form label {
+    display: block;
+    margin-bottom: 8px;
     font-weight: bold;
-    color: #b18a3e;
-    margin-left: 10px;
+    font-size: 1.9em;
+    color: #333;
 }
 
-/* ملاحظة هامة */
-.note-box {
-    margin-top: 30px;
+.calculator-form select,
+.calculator-form input[type="number"],
+.calculator-form input[type="date"],
+.calculator-form input[type="tel"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1.5em;
+    overflow: hidden; 
+}
+
+.calculator-form select:focus,
+.calculator-form input:focus {
+    border-color: #e49904;
+    box-shadow: 0 0 5px rgba(177, 138, 62, 0.5);
+    outline: none;
+}
+
+/* تنسيق النجوم */
+.star-icon {
+    color: rgb(235, 200, 1); 
+    font-size: 1em; 
+    margin-left: 2px;
+}
+
+/* صندوق النتيجة */
+.result-box {
+    text-align: center;
     padding: 15px;
-    border: 1px solid #b18a3e;
-    background-color: #fffde7;
-    border-radius: 20px;
-    color: #a73207;
+    margin-top: 20px;
+    border-top: 2px dashed #b1463e;
 }
 
-.note-box p {
-    margin: 3px 0;
+.result-box h4 {
+    margin-top: 0;
+    color: #b18a3e;
+    font-size: 1.9em;
 }
 
-/* تنسيق طرابزون (بدون حاسبة) */
-.city-layout.no-calc {
-    justify-content: center;
+.result-box p {
+    font-size: 2.5em;
+    color: #41ac27;
+    font-weight: bold;
+    margin: 5px 0 15px 0;
 }
 
-.city-layout.no-calc .trip-details {
-    flex: none;
-    width: 80%;
-    max-width: 1200px;
+.currency-note {
+    display: block;
+    font-size: 0em;
+    color: #999;
+    margin-bottom: 15px;
 }
 
-.nested-list li {
-    background-color: #f4f4f9;
-    border-right: 3px solid #ffab00;
-    font-size: 1em;
-    margin-top: 5px;
+/* زر إرسال طلب الحجز */
+.result-box button {
+    background-color: #41ac27; 
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 2.0em;
+    cursor: pointer;
+    border-radius: 1000px;
+    transition: background-color 0.3s;
+    width: 90%;
 }
 
-/* جدول أسعار طرابزون */
+.result-box button:hover:not(:disabled) {
+    background-color: #1ebb1e;
+}
+
+.result-box button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* تنسيق جدول أسعار طرابزون (الجدول الثابت) */
 .price-table-container {
-    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.price-table-container h4 {
+    text-align: center;
+    color: #b18a3e;
+    font-size: 2em;
+    border-bottom: 2px solid #b18a3e;
+    padding-bottom: 10px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
+    font-size: 1.6em;
 }
 
 table th, table td {
-    padding: 12px;
-    text-align: center;
+    padding: 15px;
+    text-align: right;
     border: 1px solid #ddd;
 }
 
 table th {
     background-color: #b18a3e;
     color: white;
-    font-size: 2.2em;
+    font-size: 1.2em; 
 }
 
 table tr:nth-child(even) {
     background-color: #f2f2f2;
-}/* ======================================================= */
-/* تنسيقات طرابزون - لجعل الأقسام متجاورة */
-/* ======================================================= */
+}
 
+/* تنسيقات طرابزون - لجعل الأقسام متجاورة */
 /* تفعيل flexbox للسماح بترتيب العناصر جنباً إلى جنب */
 .city-layout.no-calc {
     justify-content: space-between; 
@@ -302,30 +310,165 @@ table tr:nth-child(even) {
     max-width: none;
 }
 
-/* تنسيق الصندوق الجديد لجدول الأسعار */
+/* تنسيق الصندوق الجديد لجدول الأسعار ونموذج الحجز */
 .trabzon-price-box {
     flex: 1; 
-    min-width: 350px;
+    min-width: 400px;
     background-color: white;
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border: 2px solid #b18a3e; 
-}/* ======================================================= */
-/* تعديل قائمة الرحلات المشمولة (nested-list) في طرابزون */
+}
+
+/* تنسيق نموذج الحجز لطرابزون (الذي لا يحتوي على حاسبة) */
+.trabzon-price-box .calculator-form.form-only {
+    padding-top: 20px;
+    border-top: 1px dashed #ccc;
+    margin-top: 20px;
+}
+
+/* تنسيق زر الإرسال لطرابزون */
+.trabzon-price-box .result-box.form-only-btn {
+    border-top: none; 
+    padding-top: 0;
+}
+
+.nested-list {
+    list-style: disc; 
+    padding-right: 20px; 
+    margin-top: 10px;
+    font-size: 0.9em;
+}/* في ملف style.css */
+
+.city-header {
+    /* يضمن أن يكون القسم واسعًا بما يكفي لعرض الصورة */
+    height: 350px; 
+    /* توسيط النص فوق الصورة */
+    text-align: center; 
+    /* وضع النص في المنتصف العمودي */
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    
+    /* خصائص الصورة الخلفية */
+    background-size: cover;      /* تغطية المنطقة دون تشويه */
+    background-position: center; /* توسيط الصورة */
+    background-repeat: no-repeat; /* عدم تكرار الصورة */
+    
+    /* يضمن أن يكون النص أبيض وواضح فوق الصورة الداكنة */
+    color: white; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* ظل للنص ليصبح مقروءًا */
+    
+    padding-top: 100PX; /* إزالة البادنج العلوي الذي كنا نعدله سابقًا */
+    padding-bottom: 0;
+    margin-bottom: 25px; /* مسافة تحت البانر */
+}/* في ملف style.css */
+
+/* اسطنبول */
+#istanbul-page .city-header {
+    background-image: url('images/istanbul.jpg');
+}
+
+/* أنطاليا */
+#antalya-page .city-header {
+    background-image: url('images/antalya.jpg');
+}
+
+/* القاهرة */
+#cairo-page .city-header {
+    background-image: url('images/cairo.jpg');
+}
+
+/* بيروت */
+#beirut-page .city-header {
+    background-image: url('images/beirut.jpg');
+}
+
+/* طرابزون */
+#trabzon-page .city-header {
+    background-image: url('images/trabzon.jpg');
+}
+
+/* باتومي */
+#batumi-page .city-header {
+    background-image: url('images/batumi.jpg');
+}
+
+/* تبليسي */
+#tbilisi-page .city-header {
+    background-image: url('images/tbilisi.jpg');
+}
+/* في نهاية ملف style.css */
+
 /* ======================================================= */
-.nested-list li {
-    /* 🛑 التعديل الرئيسي: لعرضها متجاورة بدلاً من سطر كامل */
-    display: inline-block; 
+/* @MEDIA QUERY: تنسيقات خاصة للأجهزة المحمولة (الشاشات الصغيرة) */
+/* ======================================================= */
+
+@media (max-width: 600px) {
     
-    /* 🛑 إضافة مسافة بين العناصر المتجاورة */
-    margin-left: 15px;
-    margin-bottom: 10px; /* للحفاظ على مسافة عمودية بسيطة */
+    /* 1. هيكل الصفحة الرئيسية وعرضها */
     
-    /* باقي التنسيقات القديمة */
-    background-color: #f4f4f9;
-    border-right: 3px solid #b18a3e;
-    font-size: 1em;
-    margin-top: 2px;
-    padding: 8px 12px; 
+    main {
+        padding: 10px; /* تقليل البادنج العام */
+    }
+
+    /* تكبير أزرار المدن وجعلها بعرض كامل */
+    .buttons-container button {
+        width: 90%; 
+        padding: 15px; 
+        font-size: 1.1em;
+        margin: 10px auto; 
+        display: block; /* لضمان عرضها ككتلة وتوسيطها */
+    }
+
+    /* 2. تنسيق عناوين الصفحات والبانرات */
+    
+    .city-header {
+        height: 150px; /* تقليل ارتفاع البانر */
+        font-size: 0.9em;
+    }
+    
+    /* 3. تنسيق الحاسبات ونماذج الحجز (Form & Calculator) */
+    
+    /* جعل حقول الإدخال بعرض كامل */
+    .calculator-form div,
+    .booking-form div {
+        margin-bottom: 15px;
+    }
+
+    .calculator-form input,
+    .calculator-form select,
+    .booking-form input,
+    .booking-form select {
+        width: 100%; /* جعل الحقول بعرض كامل لسهولة الاستخدام */
+        box-sizing: border-box; /* لضمان عدم تجاوز العرض 100% مع البادنج */
+    }
+
+    /* جعل زر الإرسال والحساب أكبر وواضحًا */
+    .calculator-form button,
+    .booking-form button {
+        width: 100%; 
+        padding: 15px;
+        font-size: 1.1em;
+    }
+    
+    /* 4. تنسيق الجداول (لحل مشكلة عرض الجداول الكبيرة) */
+    
+    .price-table-container {
+        /* جعل الحاوية قابلة للتمرير أفقيًا إذا كان الجدول كبيرًا */
+        overflow-x: auto; 
+    }
+    
+    .price-table-container table {
+        /* ضمان أن الجدول لا يزال قابلاً للعرض بشكل مناسب */
+        width: 500px; /* قيمة ثابتة أكبر من الشاشة، مما يجبر التمرير */
+        min-width: 100%; /* إذا كانت 100% كافية، سيتم استخدامها */
+    }
+    
+    .price-table-container th, 
+    .price-table-container td {
+        padding: 8px; /* تقليل البادنج داخل الخلايا */
+        font-size: 0.9em;
+    }
 }

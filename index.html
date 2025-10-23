@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rokon Alasala Travel And Tourism</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     
@@ -21,6 +23,10 @@
                 <button onclick="showPage('istanbul-page')">اسطنبول - Istanbul</button>
                 <button onclick="showPage('antalya-page')">أنطاليا - Antalya</button>
                 <button onclick="showPage('trabzon-page')">طرابزون - Trabzon</button>
+                <button onclick="showPage('cairo-page')">القاهرة - Cairo</button>
+                <button onclick="showPage('beirut-page')">بيروت - Beirut</button>
+                <button onclick="showPage('batumi-page')">باتومي - Batumi</button>
+                <button onclick="showPage('tbilisi-page')">تبليسي - Tbilisi</button>
             </div>
         </section>
 
@@ -31,37 +37,45 @@
             </header>
             <div class="city-layout">
                 <div class="trip-details">
-                    <h3>برنامج الرحلة إلى اسطنبول</h3>
+                    <h3>تفاصيل الرحلة المشمولة في السعر</h3>
                     <ul>
-                        <li><span class="detail-number">1.</span> تذاكر الطيران على متن الأردنية للطيران.</li>
-                        <li><span class="detail-number">2.</span> الاستقبال والتوديع من وإلى المطار.</li>
-                        <li><span class="detail-number">3.</span> وجبة الإفطار.</li>
-                        <li><span class="detail-number">4.</span>  :  الرحلات الداخلية  :  سبانجا ** بورصة وتلسياج ** جزيرة الأميرات  </li>
-<li><span class="detail-number"></span>  سهرة البسفور  ** شيلا 
-                        </li>
+                        <li>تذاكر الطيران على الدرجة السياحية (الأردنية للطيران).</li>
+                        <li>الاستقبال والتوديع من وإلى مطار اسطنبول الجديد.</li>
+                        <li>مبيت 7 ليالٍ / 8 أيام في الفندق المختار مع وجبة الإفطار.</li>
+                        <li>جميع الضرائب والرسوم الحكومية.</li>
                     </ul>
-                    <div class="note-box">
-                        <p>**ملاحظة هامة:**</p>
-                        <p>يرجى تشييك إمكانية الحجز قبل التثبيت مع الزبون.</p>
-                        <p>الأسعار قابلة للتغيير حسب سعر تذكرة الطيران.</p>
-                    </div>
                 </div>
-
+                
                 <div class="calculator-container">
-    
                     <div class="calculator-form">
-                        <label for="istanbul-hotel">اختيار الفندق:</label>
-                        <select id="istanbul-hotel" onchange="calculateTripPrice('istanbul')">
-                            <option value="0" disabled selected>اختر فندقاً</option>
-                        </select>
-                        <label for="istanbul-nights">عدد الليالي:</label>
-                        <input type="number" id="istanbul-nights" min="1" value="7" onchange="calculateTripPrice('istanbul')">
                         
-                        <div class="result-box">
-                            <h4>السعر الإجمالي:</h4>
-                            <p id="istanbul-output-price">0.00 دينار أردني</p>
-                            <span class="currency-note">ملاحظة: السعر بالدينار الأردني (دينار أردني)</span>
-                        </div>
+                        <label for="istanbul-hotel">اختيار الفندق:</label>
+                        <select id="istanbul-hotel" onchange="calculateTripPrice('istanbul'); checkFormValidity('istanbul');">
+                            <option value="0" disabled selected>اختر فندقاً</option>
+                            </select>
+
+                        <label for="istanbul-nights">عدد الليالي:</label>
+                        <input type="number" id="istanbul-nights" min="1" value="7" onchange="calculateTripPrice('istanbul'); checkFormValidity('istanbul');">
+
+                        <label for="istanbul-date">تاريخ السفر:</label>
+                        <input type="date" id="istanbul-date" onchange="checkFormValidity('istanbul');">
+                        
+                        <label for="istanbul-people-count">عدد الأشخاص:</label>
+                        <input type="number" id="istanbul-people-count" min="1" value="2" onchange="checkFormValidity('istanbul');">
+                        
+                        <label for="istanbul-phone">رقم الهاتف:</label>
+                        <input type="tel" id="istanbul-phone" placeholder="للتواصل" onchange="checkFormValidity('istanbul');">
+
+                    </div>
+
+                    <div class="result-box">
+                        <h4>السعر الإجمالي (تقريبي):</h4>
+                        <p id="istanbul-output-price">0.00 دينار أردني</p>
+                        <span class="currency-note">ملاحظة: السعر بالدينار الأردني</span>
+
+                        <button id="istanbul-send-btn" onclick="sendInquiryEmail('istanbul')" disabled>
+                            إرسال طلب الحجز
+                        </button>
                     </div>
                 </div>
             </div>
@@ -74,41 +88,51 @@
             </header>
             <div class="city-layout">
                 <div class="trip-details">
-                    <h3>برنامج الرحلة إلى أنطاليا</h3>
+                    <h3>تفاصيل الرحلة المشمولة في السعر</h3>
                     <ul>
-                        <li><span class="detail-number">1.</span> تذاكر الطيران على متن  SUNEXPRESS .</li>
-                        <li><span class="detail-number">2.</span> الاستقبال والتوديع من وإلى المطار.سيارة خاصة </li>
-                        <li><span class="detail-number">3.</span> جميع الوجبات والمشروبات .</li>
-                        <li><span class="detail-number">4.</span> جميع الفنادق 5 نجوم  .</li>
+                        <li>تذاكر الطيران على الدرجة السياحية.</li>
+                        <li>الاستقبال والتوديع من وإلى مطار أنطاليا.</li>
+                        <li>مبيت 7 ليالٍ / 8 أيام في المنتجع المختار (شامل كلي غالباً).</li>
+                        <li>جميع الضرائب والرسوم الحكومية.</li>
                     </ul>
-                    <div class="note-box">
-                        <p>**ملاحظة هامة:**</p>
-                        <p>يرجى تشييك إمكانية الحجز قبل التثبيت مع الزبون.</p>
-                        <p>الأسعار قابلة للتغيير حسب سعر تذكرة الطيران.</p>
-                    </div>
                 </div>
 
                 <div class="calculator-container">
-                    <h3>حاسبة سعر الرحلة</h3>
                     <div class="calculator-form">
-                        <label for="antalya-hotel">اختيار الفندق:</label>
-                        <select id="antalya-hotel" onchange="calculateTripPrice('antalya')">
-                            <option value="0" disabled selected>اختر فندقاً</option>
-                        </select>
-                        <label for="antalya-nights">عدد الليالي:</label>
-                        <input type="number" id="antalya-nights" min="1" value="7" onchange="calculateTripPrice('antalya')">
                         
-                        <div class="result-box">
-                            <h4>السعر الإجمالي:</h4>
-                            <p id="antalya-output-price">0.00 دينار أردني</p>
-                            <span class="currency-note">ملاحظة: السعر بالدينار الأردني (دينار أردني)</span>
-                        </div>
+                        <label for="antalya-hotel">اختيار الفندق:</label>
+                        <select id="antalya-hotel" onchange="calculateTripPrice('antalya'); checkFormValidity('antalya');">
+                            <option value="0" disabled selected>اختر منتجعاً</option>
+                            </select>
+
+                        <label for="antalya-nights">عدد الليالي:</label>
+                        <input type="number" id="antalya-nights" min="1" value="7" onchange="calculateTripPrice('antalya'); checkFormValidity('antalya');">
+
+                        <label for="antalya-date">تاريخ السفر (المقترح):</label>
+                        <input type="date" id="antalya-date" onchange="checkFormValidity('antalya');">
+                        
+                        <label for="antalya-people-count">عدد الأشخاص:</label>
+                        <input type="number" id="antalya-people-count" min="1" value="2" onchange="checkFormValidity('antalya');">
+                        
+                        <label for="antalya-phone">رقم الهاتف:</label>
+                        <input type="tel" id="antalya-phone" placeholder="للتواصل" onchange="checkFormValidity('antalya');">
+
+                    </div>
+                    
+                    <div class="result-box">
+                        <h4>السعر الإجمالي (تقريبي):</h4>
+                        <p id="antalya-output-price">0.00 دينار أردني</p>
+                        <span class="currency-note">ملاحظة: السعر بالدينار الأردني</span>
+
+                         <button id="antalya-send-btn" onclick="sendInquiryEmail('antalya')" disabled>
+                            إرسال طلب الحجز
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
 
- <section id="trabzon-page" class="page">
+        <section id="trabzon-page" class="page">
             <header class="city-header">
                 <button class="back-button" onclick="showPage('home-page')">العودة للرئيسية</button>
                 <h2>طرابزون - TRABZON</h2>
@@ -116,7 +140,7 @@
             <div class="city-layout no-calc">
                 
                 <div class="trip-details">
-                    <h3>عرض 7 ليالٍ / 8 أيام في طرابزون</h3>
+                    <h3>تفاصيل العرض الثابت لـ 7 ليالٍ / 8 أيام</h3>
                     <ol>
                         <li>تذاكر الطيران مع الأردنية للطيران.</li>
                         <li>الاستقبال والتوديع من وإلى المطار.</li>
@@ -141,7 +165,7 @@
                             <thead>
                                 <tr>
                                     <th>اسم الفندق</th>
-                                    <th>السعر (دينار أردني)</th>
+                                    <th>السعر للشخص الواحد</th>
                                 </tr>
                             </thead>
                             <tbody id="trabzon-prices">
@@ -152,6 +176,226 @@
                 
             </div>
         </section>
+    </main>
+    <section id="cairo-page" class="page">
+            <header class="city-header">
+                <button class="back-button" onclick="showPage('home-page')">العودة للرئيسية</button>
+                <h2>القاهرة - CAIRO</h2>
+            </header>
+            <div class="city-layout">
+                <div class="trip-details">
+                    <h3>تفاصيل الرحلة المشمولة في السعر</h3>
+                    <ul>
+                        <li>تذاكر الطيران على الدرجة السياحية.</li>
+                        <li>الاستقبال والتوديع من وإلى مطار القاهرة الدولي.</li>
+                        <li>مبيت **الليالي المختارة** في الفندق المختار مع وجبة الإفطار.</li>
+                        <li>جولات سياحية لأهم المعالم (الأهرامات، المتحف المصري، إلخ).</li>
+                    </ul>
+                </div>
+                
+                <div class="calculator-container">
+                    <div class="calculator-form">
+                        
+                        <label for="cairo-hotel">اختيار الفندق:</label>
+                        <select id="cairo-hotel" onchange="calculateTripPrice('cairo'); checkFormValidity('cairo');">
+                            <option value="0" disabled selected>اختر فندقاً</option>
+                            </select>
+
+                        <label for="cairo-nights">عدد الليالي:</label>
+                        <input type="number" id="cairo-nights" min="1" value="5" onchange="calculateTripPrice('cairo'); checkFormValidity('cairo');">
+
+                        <label for="cairo-date">تاريخ السفر (المقترح):</label>
+                        <input type="date" id="cairo-date" onchange="checkFormValidity('cairo');">
+                        
+                        <label for="cairo-people-count">عدد الأشخاص:</label>
+                        <input type="number" id="cairo-people-count" min="1" value="2" onchange="checkFormValidity('cairo');">
+                        
+                        <label for="cairo-phone">رقم الهاتف:</label>
+                        <input type="tel" id="cairo-phone" placeholder="للتواصل" onchange="checkFormValidity('cairo');">
+
+                    </div>
+
+                    <div class="result-box">
+                        <h4>السعر الإجمالي (تقريبي):</h4>
+                        <p id="cairo-output-price">0.00 دينار أردني</p>
+                        <span class="currency-note">ملاحظة: السعر بالدينار الأردني</span>
+
+                        <button id="cairo-send-btn" onclick="sendInquiryEmail('cairo')" disabled>
+                            إرسال طلب الحجز
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="beirut-page" class="page">
+            <header class="city-header">
+                <button class="back-button" onclick="showPage('home-page')">العودة للرئيسية</button>
+                <h2>بيروت - BEIRUT</h2>
+            </header>
+            <div class="city-layout">
+                <div class="trip-details">
+                    <h3>تفاصيل الرحلة المشمولة في السعر</h3>
+                    <ul>
+                        <li>تذاكر الطيران على الدرجة السياحية (عمّان - بيروت - عمّان).</li>
+                        <li>المواصلات الداخلية مشمولة مع سعر الفندق اليومي.</li>
+                        <li>مبيت **الليالي المختارة** في الفندق المختار مع وجبة الإفطار.</li>
+                        <li>يتم إضافة الرحلات السياحية والجولات لاحقاً عند الحجز.</li>
+                    </ul>
+                    <div class="note-box">
+                        <p>**ملاحظة هامة:**</p>
+                        <p>يرجى تشييك إمكانية الحجز قبل التثبيت مع الزبون.</p>
+                        <p>الأسعار قابلة للتغيير حسب سعر تذكرة الطيران.</p>
+                    </div>
+                </div>
+                
+                <div class="calculator-container">
+                    <h3>حاسبة سعر الرحلة</h3>
+                    <div class="calculator-form">
+                        
+                        <label for="beirut-hotel">اختيار الفندق:</label>
+                        <select id="beirut-hotel" onchange="calculateTripPrice('beirut')">
+                            <option value="0" disabled selected>اختر فندقاً</option>
+                            </select>
+
+                        <label for="beirut-nights">عدد الليالي:</label>
+                        <select id="beirut-nights" onchange="calculateTripPrice('beirut')">
+                            <option value="3">3 ليالي / 4 أيام</option>
+                            <option value="4">4 ليالي / 5 أيام</option>
+                            <option value="7" selected>7 ليالي / 8 أيام</option>
+                        </select>
+                        
+                        <div class="result-box">
+                            <h4>السعر الإجمالي (تقريبي):</h4>
+                            <p id="beirut-output-price">0.00 دينار أردني</p>
+                            <span class="currency-note">ملاحظة: السعر بالدينار الأردني</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="batumi-page" class="page">
+            <header class="city-header">
+                <button class="back-button" onclick="showPage('home-page')">العودة للرئيسية</button>
+                <h2>باتومي (جورجيا) - عرض ثابت 7 ليالٍ</h2>
+            </header>
+            <div class="city-layout">
+                <div class="trip-details">
+                    <h3>تفاصيل البرنامج (7 ليالٍ / 8 أيام):</h3>
+                    <div class="program-description">
+                        <ul>
+                        <li>**اليوم الأول:** الاستقبال من المطار والذهاب في رحلة إلى الحدود التركية (ساربي) مروراً بقلعة جونيو ومروراً بشلال ساربي والوقوف لمدة 20 دقيقة يقضيها البعض في الذهاب إلى المطعم ومن ثم التوجه إلى الفندق لاستلام الغرف.</li>
+                            <li>**اليوم الثاني:** الذهاب إلى مدينة (ماخونستي) والبدء للاستمتاع بأجمل مناظر الطبيعة ( نهر آجرارا شلالات ماخونستي جسر الملكة تامارا ) والفعاليات من رافتينك التي تم التزحلق على السلك فوق نهر آجرارا ثم الذهاب لتناول وجبة الغداء على البحر الأسود (للكات والأسماك البحرية) ثم الذهاب إلى التلفريك 3كم لرؤية بانوراما باتومي ثم الرجوع إلى الفندق.</li>
+                            <li>**اليوم الثالث:** الذهاب إلى الجهة اليونانية (يونانيا باتومي يوتيكال جاردن) التي تحتوي على نباتات من جميع أنحاء العالم ثم إلى البوليفارد لرؤية مجسم علي ونينو وبرج الحروف الأبجدية (ألفابتيكال تاور) ورؤية عين باتومي ثم القيام بجولة بحرية في البحر الأسود على متن يخت كبير مع أجواء موسيقية والقيام بالفعاليات حسب الرغبة (البرشوت البحري، الدباب... إلخ) ثم الذهاب إلى عروض الدلافين في باتومي وبحيرة 26 مايو.</li>
+                            <li>**اليوم الرابع:** يوم حر أو رحلة إلى مدينة أوزنجول والمحمود إلى بحيرة أوزنجول للاستمتاع بالمناظر الطبيعية الخلابة والجلسات على بحيرة أوزنجول بعدها النزول إلى ميدان سنتر طرابزون للتسوق وقضاء وقت ممتع في منتزه ميدان طرابزون وأخذ وقت للغداء. (رحلة اختيارية).</li>
+                            <li>**اليوم الخامس:** رحلة إلى رحلة مميزة (رحلة غابات الأمازون) في جورجيا في محطة بوتي السياحية تتضمن الرحلة جولة في قارب خاص لمدة ساعتين تقريباً في الأنهار في عمق غابات الأمازون الجورجية وصولاً إلى مكان جميل جداً ووسط هذه الغابات (جلسات جميلة جداً ومقمرة الغذاء أيضاً) للأخذ وقت حر في هذه المنطقة ثم الرجوع بنفس القوارب إلى نقطة البدء (رحلة إختيارية).</li>
+                            <li>**اليوم السادس:** الذهاب إلى مدينة كوتايسي أولا: الى كهوف الحب والديناموزات ثم الى ثانيا : مارتونيلي حيث الينابيع الخلابة والطبيعة الساحرة حيث تعتبر من أجمل وأرق أشكال الطبيعة في جورجيا (رحلة اختيارية).</li>
+                            <li>**اليوم السابع:** يوم حر أو رحله شوياء في أربات (ماخاجلا) وجلسات رائعة بين الجبال وعلى الأنهار وتحت الشلالات وفي أحضان الطبيعة (رحلة إختيارية).</li>
+                            <li>**اليوم الثامن:** الاستعداد وتسليم الغرف ثم الذهاب الى المطار للعودة للوطن الحبيب.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="calculator-container">
+                    <h3>أسعار العرض الثابت (7 ليالٍ)</h3>
+                    
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>اسم الفندق</th>
+                                <th>السعر للشخص (دينار أردني)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="batumi-prices">
+                            </tbody>
+                    </table>
+
+                    <div class="calculator-form">
+                        <label for="batumi-hotel">اختيار الفندق المطلوب:</label>
+                        <select id="batumi-hotel" onchange="checkFormValidity('batumi');">
+                            <option value="0" disabled selected>اختر فندقاً من الجدول أعلاه</option>
+                        </select>
+                        
+                        <label for="batumi-date">تاريخ السفر (كل يوم خميس):</label>
+                        <input type="date" id="batumi-date" onchange="checkFormValidity('batumi');">
+                        
+                        <label for="batumi-people-count">عدد الأشخاص:</label>
+                        <input type="number" id="batumi-people-count" min="1" value="2" onchange="checkFormValidity('batumi');">
+                        
+                        <label for="batumi-phone">رقم الهاتف:</label>
+                        <input type="tel" id="batumi-phone" placeholder="للتواصل" onchange="checkFormValidity('batumi');">
+
+                        <button id="batumi-send-btn" onclick="sendInquiryEmail('batumi')" disabled>
+                            إرسال طلب الحجز
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    <section id="tbilisi-page" class="page">
+            <header class="city-header">
+                <button class="back-button" onclick="showPage('home-page')">العودة للرئيسية</button>
+                <h2>تبليسي (جورجيا) - عرض ثابت 7 ليالٍ</h2>
+            </header>
+            <div class="city-layout">
+                <div class="trip-details">
+                    <h3>تفاصيل البرنامج (7 ليالٍ / 8 أيام):</h3>
+                    <div class="program-description">
+                        <ul>
+                            <li>**اليوم الأول:** الاستقبال من المطار والذهاب إلى الفندق لاستلام الغرف. الذهاب إلى المطعم ومن ثم الذهاب للممشى للعشاء، مع جولة ليلية.</li>
+                            <li>**اليوم الثاني:** الإفطار ثم الذهاب إلى (شارديني) المدينة الأوروبية والصعود بواسطة التلفريك إلى مجسم أم جورجيا (كارتوليس ديدا) ثم الذهاب لرؤية الحمامات المعدنية الطبيعية ثم إلى حديقة تبليسي النباتية ثم إلى المطعم للغداء وجولة في السنتر (مارجانيشفيلي).</li>
+                            <li>**اليوم الثالث:** يوم حر أو الذهاب إلى جبال القوقاز مروراً ببحيرة أنانوري والتوّقف عندها لأخذ أجمل الصور لتبقى ذكرى لا تُنسى ثم التوجه إلى جوداوري وبعدها الذهاب إلى بانوراما كازبيجي حيث تلتقي جبال القوقاز وبعدها الذهاب لتناول وجبة الغداء مع إمكانية الشواء في الهواء الطلق في جبال القوقاز (رحلة اختيارية).</li>
+                            <li>**اليوم الرابع:** الإفطار ثم الذهاب إلى (ساميبا) ثالث أكبر كاتدرائية في العالم ثم صعود أعلى نقطة في تبليسي (بومبورا) بارك بومبورا السياحي ثم إلى المطعم للغداء ثم إلى الفندق.</li>
+                            <li>**اليوم الخامس:** بعد الإفطار القيام برحلة تسويقية والانطلاق إلى (تبليسي مول) ثم إلى أكبر مجمع تسويقي (إيست بوينت ثم إلى الفندق (رحلة اختيارية).</li>
+                            <li>**اليوم السادس:** الإفطار ثم إستغلال الباص والذهاب برفقة الدليل السياحي إلى مدينة (متسخيتا) عاصمة جورجيا القديمة ثم الصعود إلى (جفاري) للغداء ثم إلى بحيرة السلاحف (كوستوبا)، والذهاب إلى المطعم.</li>
+                            <li>**اليوم السابع:** بعد الإفطار الإنطلاق إلى محافظة (بورجومي) المدينة التي تشتهر بالمياه المعدنية ثم التوجه إلى أكبر تلفريك في جورجيا للصعود إلى أعلى قمة جبلية لمشاهدة منتجع (الطبيعة والمناظر الخلابة والتعرّف على معالم المدينة ثم التوجه للإستمتاع بأجمل الحملات والممشيات حتى نهاية اليوم ثم الرجوع إلى تبليسي (رحلة اختيارية).</li>
+                            <li>**اليوم الثامن:** الإفطار ثم إعداد حقائب السفر وإكمال مستلزمات السفر والذهاب إلى المطار للعودة للوطن الحبيب.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="calculator-container">
+                    <h3>أسعار العرض الثابت (7 ليالٍ) - الرحلة كل ثلاثاء</h3>
+                    
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>اسم الفندق</th>
+                                <th>السعر للشخص (دينار أردني)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbilisi-prices">
+                            </tbody>
+                    </table>
+
+                    <div class="calculator-form">
+                        <label for="tbilisi-hotel">اختيار الفندق المطلوب:</label>
+                        <select id="tbilisi-hotel" onchange="checkFormValidity('tbilisi');">
+                            <option value="0" disabled selected>اختر فندقاً من الجدول أعلاه</option>
+                        </select>
+                        
+                        <label for="tbilisi-date">تاريخ السفر (كل يوم ثلاثاء):</label>
+                        <input type="date" id="tbilisi-date" onchange="checkFormValidity('tbilisi');">
+                        
+                        <label for="tbilisi-people-count">عدد الأشخاص:</label>
+                        <input type="number" id="tbilisi-people-count" min="1" value="2" onchange="checkFormValidity('tbilisi');">
+                        
+                        <label for="tbilisi-phone">رقم الهاتف:</label>
+                        <input type="tel" id="tbilisi-phone" placeholder="للتواصل" onchange="checkFormValidity('tbilisi');">
+
+                        <button id="tbilisi-send-btn" onclick="sendInquiryEmail('tbilisi')" disabled>
+                            إرسال طلب الحجز
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main></main>
+</main></main>
+
     <script src="script.js"></script>
 </body>
 </html>
