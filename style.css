@@ -443,37 +443,58 @@ table tr:nth-child(even) {
 
 @media (max-width: 600px) {
 
-    /* 1. إخفاء رأس الكمبيوتر (city-header) */
+    /* 1. الإخفاء التام لرأس الصفحة القديم */
     .city-header {
         display: none !important; 
+    }
+    
+    /* ✅ القاعدة السحرية: إخفاء تفاصيل الرحلة على الهاتف فقط! */
+    .city-layout .trip-details {
+        display: none !important;
+    }
+
+    /* 2. جعل التخطيط عمودياً بدلاً من جنب إلى جنب */
+    .city-layout {
+        display: block; /* هذا يضمن أن الآلة الحاسبة تأخذ عرض 100% */
     }
 
     /* 2. تنسيق شريط الهاتف العلوي (mobile-top-bar) */
     .mobile-top-bar {
-        /* ✅ يعيد إظهاره على الهاتف */
-        display: flex; 
-        justify-content: flex-start; 
-        align-items: center;
-        background-color: #ffffff; /* خلفية نظيفة */
-        padding: 10px 15px;
-        border-bottom: 1px solid #eee; 
-        margin-bottom: 15px; 
-        position: sticky; 
-        top: 0;
-        z-index: 100;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center;
+    background-color: #ffffff; 
+    padding: 8px 15px !important; /* ✅ تخفيض البادنج العلوي والسفلي لضغط الشريط */
+    border-bottom: 1px solid #eee; 
+    margin-bottom: 15px; 
+    position: sticky; 
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+}
+    
+    /* 1. إخفاء اللوجو الذي وضعناه في الشريط الجديد */
+    .mobile-top-bar .logo-placeholder {
+        display: none !important; 
     }
     
-    /* ⛔ إخفاء اللوجو (حسب الطلب) */
-    .mobile-top-bar .logo-placeholder {
-        display: none; 
+    /* 2. إخفاء الشعار الرئيسي للموقع (logo.png) في الشريط العلوي للكمبيوتر */
+    /* هذا مهم في حال لم يتم إخفاء الـ main-header بالكامل */
+    #main-header,
+    #main-header img#logo {
+        display: none !important; 
+    }
+    
+    /* 3. إخفاء الرأس الرئيسي (الذي يحمل اللوجو والاسم) كاملاً */
+    #main-header {
+        display: none !important; 
     }
 
     /* تنسيق زر العودة داخل الشريط */
     .mobile-top-bar .back-button {
         background: none;
         border: none;
-        color: #007bff; /* لون مميز للعودة */
+        color: #007bff !important; /* ✅ فرض اللون الأزرق لجعله مرئياً */
         font-size: 1em;
         font-weight: bold;
         padding: 0;
