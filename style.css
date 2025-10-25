@@ -437,120 +437,144 @@ table tr:nth-child(even) {
 /* @MEDIA QUERY: تنسيقات خاصة للأجهزة المحمولة (الشاشات الصغيرة) */
 /* ======================================================= */
 
+/* ======================================================= */
+/* @MEDIA QUERY: تنسيقات الأجهزة المحمولة - تصميم مرتب ونظيف */
+/* ======================================================= */
+
 @media (max-width: 600px) {
 
-    /* 1. الإخفاء التام لرأس الصفحة (البانر) وتفاصيل الرحلة */
-    .city-header,
-    .trip-details-content {
+    /* 1. إخفاء رأس الكمبيوتر (city-header) */
+    .city-header {
         display: none !important; 
     }
 
-    /* 2. تنسيق شريط الموبايل الجديد (الذي يحوي اللوجو واسم المدينة) */
+    /* 2. تنسيق شريط الهاتف العلوي (mobile-top-bar) */
     .mobile-top-bar {
-        /* التأكد من ظهور الشريط العلوي */
+        /* ✅ يعيد إظهاره على الهاتف */
         display: flex; 
-        justify-content: space-between; 
+        justify-content: flex-start; 
         align-items: center;
-        background-color: white; 
-        padding: 8px 10px; /* ✅ تصغير المسافات */
-        border-bottom: 1px solid #ddd; 
-        margin-bottom: 10px; /* ✅ تصغير الهامش */
+        background-color: #ffffff; /* خلفية نظيفة */
+        padding: 10px 15px;
+        border-bottom: 1px solid #eee; 
+        margin-bottom: 15px; 
         position: sticky; 
         top: 0;
         z-index: 100;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
     }
-
+    
+    /* ⛔ إخفاء اللوجو (حسب الطلب) */
     .mobile-top-bar .logo-placeholder {
-        width: 10px; /* ✅ تصغير اللوجو */
-        height: 05px;
-        background-color: #007bff; 
+        display: none; 
     }
 
+    /* تنسيق زر العودة داخل الشريط */
+    .mobile-top-bar .back-button {
+        background: none;
+        border: none;
+        color: #007bff; /* لون مميز للعودة */
+        font-size: 1em;
+        font-weight: bold;
+        padding: 0;
+        margin: 0 15px 0 0; 
+        cursor: pointer;
+    }
+
+    /* تنسيق اسم المدينة */
     .mobile-top-bar .mobile-city-title {
-        font-size: 1em; /* ✅ تصغير اسم المدينة أكثر */
-        color: #333;
+        font-size: 1.1em; 
+        color: #1a1a1a;
         margin: 0;
+        font-weight: 700;
     }
 
-    /* 3. هيكل الصفحة الرئيسية وعرضها */
+    /* 3. هيكل الصفحة الرئيسية والأزرار */
     
-    main {
-        padding: 2px; /* ✅ تصغير البادنج العام */
+    #content {
+        padding: 5px; 
     }
 
-    /* تصغير أزرار المدن قليلاً */
-    .buttons-container button {
-        width: 95%; /* زيادة العرض قليلاً */
-        padding: 12px; /* ✅ تصغير البادنج */
-        font-size: 1em; /* ✅ تصغير حجم الخط */
-        margin: 8px auto; 
-        display: block; 
-    }
-    
-    /* 4. تنسيق الحاسبات ونماذج الحجز (Form & Calculator) */
-    
-    .calculator-container {
-        display: block !important; 
-        padding: 10px; /* ✅ تصغير بادنج الحاوية */
-    }
-    
-    .calculator-container h3 {
-        font-size: 1.2em; /* تصغير عنوان الحاسبة */
-        margin-bottom: 10px;
+    .page {
+        padding: 10px;
     }
 
-    .calculator-form {
+    .buttons-container {
         flex-direction: column; 
-        gap: 0;
+        gap: 10px;
+    }
+
+    /* أزرار المدن (كروت أنيقة بعرض كامل) */
+    .buttons-container button {
+        width: 95%; 
+        padding: 15px; 
+        font-size: 1.1em; 
+        margin: 5px auto; 
+        background-color: #ffffff; 
+        color: #007bff; 
+        border: 1px solid #007bff; 
+        border-radius: 10px; 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
     }
     
-    .calculator-form div,
-    .booking-form div {
-        margin-bottom: 10px; /* ✅ تصغير المسافة بين الحقول */
+    /* 4. تنسيق الحاسبات ونماذج الحجز */
+    
+    .city-layout {
+        display: block; /* جعل العناصر عمودية */
     }
 
-    /* تصغير الحقول وعناصرها */
-    .calculator-form label,
-    .booking-form label {
-        font-size: 0.9em; /* تصغير خط الليبل */
-        margin-bottom: 3px;
+    .calculator-container {
+        width: 100%;
+        margin: 0;
+        padding: 15px 10px; /* بادنج داخلي مناسب */
     }
 
+    /* تحسين حقول الإدخال والاختيار */
     .calculator-form input,
-    .calculator-form select,
-    .booking-form input,
-    .booking-form select {
-        width: 100%; 
-        box-sizing: border-box; 
-        padding: 8px; /* ✅ تصغير بادنج الحقول */
-        font-size: 0.9em; /* ✅ تصغير حجم خط الحقول */
+    .calculator-form select {
+        padding: 12px; /* ارتفاع مريح */
+        font-size: 1em; 
+        height: 48px; /* ارتفاع ثابت واضح */
+        border-radius: 8px; 
+        border: 1px solid #ddd;
     }
 
-    /* تصغير زر الإرسال والحساب */
-    .calculator-form button,
-    .booking-form button,
-    .booking-send-btn {
-        width: 100%; 
-        padding: 12px; /* ✅ تصغير بادنج الزر */
-        font-size: 1em; /* ✅ تصغير حجم خط الزر */
-        margin-top: 5px;
+    .calculator-form label {
+        font-size: 1em;
+        margin-bottom: 5px;
+    }
+
+    /* تنسيق زر الإرسال والحجز (WhatsApp Button) */
+    .result-box button {
+        padding: 18px; /* زر كبير وواضح */
+        font-size: 1.1em;
+        border-radius: 10px; 
+        box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4); 
+    }
+
+    /* تنسيق صندوق النتيجة */
+    .result-box {
+        padding: 10px;
+        margin-top: 15px;
     }
     
-    /* 5. تنسيق الجداول (الأكثر صغراً) */
-    
+    .result-box p {
+        font-size: 1.6em; 
+    }
+
+    /* 5. تنسيق الجداول (لأسعار العروض الثابتة) */
     .price-table-container {
+        margin: 15px 0;
         overflow-x: auto; 
     }
     
     .price-table-container table {
-        /* إبقاء العرض للسماح بالتمرير إذا لزم الأمر */
-        min-width: 100%; 
+        min-width: 400px; 
     }
     
     .price-table-container th, 
     .price-table-container td {
-        padding: 6px; /* ✅ تصغير بادنج الخلايا */
-        font-size: 0.85em; /* ✅ تصغير حجم خط الجدول */
+        padding: 10px; 
+        font-size: 0.9em;
     }
-    
 }
