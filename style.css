@@ -41,7 +41,7 @@ body {
 
 /* تنسيق الحاويات الرئيسية */
 #content {
-    padding: 100px;
+    padding: 0PX;
     max-width: 2000px;
     margin: 40px auto;
     background-color:
@@ -93,32 +93,35 @@ body {
     padding-top: 10px; /* جرب قيمة أقل، مثل 5px أو 10px */
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid #b18a3e;
+    border-bottom: 5px solid #b18a3e;
     padding-bottom: 10px;
     margin-bottom: 30px;
+    
 }
 
 .city-header h2 {
-    font-size: 5em;
-    color: #91753b;
+    font-size: 8em;
+    color: #f7f6f4;
     margin: 0;
+    font-weight:bold
     
 }
 
 .back-button {
-    background-color: #443939;
-    color: rgb(255, 255, 255);
+    background-color: #ffffff;
+    color: rgb(7, 3, 3);
     border: none;
     padding: 10px 60px;
-    font-size: 1.6em;
+    font-size: 1.9em;
     cursor: pointer;
     border-radius: 90px;
     transition: background-color 0.3s;
     padding-top: 10px;
+    font-weight: bold;
 }
 
 .back-button:hover {
-    background-color: #f3efef;
+    background-color: #e9c067;
 }
 
 /* تنسيق تخطيط المدينة (تفاصيل + حاسبة) */
@@ -136,7 +139,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     border: 1px solid #ddd;
-    max-width: 45%;
+    max-width: 49%;
 }
 
 .trip-details h3 {
@@ -198,7 +201,7 @@ body {
 .calculator-form select:focus,
 .calculator-form input:focus {
     border-color: #e49904;
-    box-shadow: 0 0 5px rgba(177, 138, 62, 0.5);
+    box-shadow: 0 0 50px rgba(177, 138, 62, 0.5);
     outline: none;
 }
 
@@ -343,7 +346,7 @@ table tr:nth-child(even) {
 
 .city-header {
     /* يضمن أن يكون القسم واسعًا بما يكفي لعرض الصورة */
-    height: 350px; 
+    height: 500px; 
     /* توسيط النص فوق الصورة */
     text-align: center; 
     /* وضع النص في المنتصف العمودي */
@@ -362,7 +365,18 @@ table tr:nth-child(even) {
     
     padding-top: 100PX; /* إزالة البادنج العلوي الذي كنا نعدله سابقًا */
     padding-bottom: 0;
-    margin-bottom: 25px; /* مسافة تحت البانر */
+    margin-bottom: 10px; /* مسافة تحت البانر */
+    /* ======= خصائص التموضع ======= */
+    position: relative; /* ليكون مرجعاً لزر الرجوع */
+    display: flex; /* لتمكين التوسيط الرأسي والأفقي */
+    flex-direction: column;
+    justify-content: center; /* توسيط رأسي لعنوان المدينة */
+    align-items: center; /* توسيط أفقي لعنوان المدينة */
+    
+    /* ضمان أن العنوان يظهر بوضوح */
+    color: white; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    padding: 0;
 }/* في ملف style.css */
 
 /* اسطنبول */
@@ -405,70 +419,138 @@ table tr:nth-child(even) {
 /* @MEDIA QUERY: تنسيقات خاصة للأجهزة المحمولة (الشاشات الصغيرة) */
 /* ======================================================= */
 
+/* في نهاية ملف style.css - استبدل هذا القسم بالكامل بالقديم */
+
+/* ======================================================= */
+/* @MEDIA QUERY: تنسيقات خاصة للأجهزة المحمولة (الشاشات الصغيرة) */
+/* ======================================================= */
+
+/* في نهاية ملف style.css - استبدل هذا القسم بالكامل بالقديم */
+
+/* ======================================================= */
+/* @MEDIA QUERY: تنسيقات خاصة للأجهزة المحمولة (الشاشات الصغيرة) */
+/* ======================================================= */
+
+/* في ملف style.css - استبدل هذا القسم بالكامل بالقديم */
+
+/* ======================================================= */
+/* @MEDIA QUERY: تنسيقات خاصة للأجهزة المحمولة (الشاشات الصغيرة) */
+/* ======================================================= */
+
 @media (max-width: 600px) {
-    
-    /* 1. هيكل الصفحة الرئيسية وعرضها */
+
+    /* 1. الإخفاء التام لرأس الصفحة (البانر) وتفاصيل الرحلة */
+    .city-header,
+    .trip-details-content {
+        display: none !important; 
+    }
+
+    /* 2. تنسيق شريط الموبايل الجديد (الذي يحوي اللوجو واسم المدينة) */
+    .mobile-top-bar {
+        /* التأكد من ظهور الشريط العلوي */
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+        background-color: white; 
+        padding: 8px 10px; /* ✅ تصغير المسافات */
+        border-bottom: 1px solid #ddd; 
+        margin-bottom: 10px; /* ✅ تصغير الهامش */
+        position: sticky; 
+        top: 0;
+        z-index: 100;
+    }
+
+    .mobile-top-bar .logo-placeholder {
+        width: 10px; /* ✅ تصغير اللوجو */
+        height: 05px;
+        background-color: #007bff; 
+    }
+
+    .mobile-top-bar .mobile-city-title {
+        font-size: 1em; /* ✅ تصغير اسم المدينة أكثر */
+        color: #333;
+        margin: 0;
+    }
+
+    /* 3. هيكل الصفحة الرئيسية وعرضها */
     
     main {
-        padding: 10px; /* تقليل البادنج العام */
+        padding: 2px; /* ✅ تصغير البادنج العام */
     }
 
-    /* تكبير أزرار المدن وجعلها بعرض كامل */
+    /* تصغير أزرار المدن قليلاً */
     .buttons-container button {
-        width: 90%; 
-        padding: 15px; 
-        font-size: 1.1em;
-        margin: 10px auto; 
-        display: block; /* لضمان عرضها ككتلة وتوسيطها */
+        width: 95%; /* زيادة العرض قليلاً */
+        padding: 12px; /* ✅ تصغير البادنج */
+        font-size: 1em; /* ✅ تصغير حجم الخط */
+        margin: 8px auto; 
+        display: block; 
+    }
+    
+    /* 4. تنسيق الحاسبات ونماذج الحجز (Form & Calculator) */
+    
+    .calculator-container {
+        display: block !important; 
+        padding: 10px; /* ✅ تصغير بادنج الحاوية */
+    }
+    
+    .calculator-container h3 {
+        font-size: 1.2em; /* تصغير عنوان الحاسبة */
+        margin-bottom: 10px;
     }
 
-    /* 2. تنسيق عناوين الصفحات والبانرات */
-    
-    .city-header {
-        height: 150px; /* تقليل ارتفاع البانر */
-        font-size: 0.9em;
+    .calculator-form {
+        flex-direction: column; 
+        gap: 0;
     }
     
-    /* 3. تنسيق الحاسبات ونماذج الحجز (Form & Calculator) */
-    
-    /* جعل حقول الإدخال بعرض كامل */
     .calculator-form div,
     .booking-form div {
-        margin-bottom: 15px;
+        margin-bottom: 10px; /* ✅ تصغير المسافة بين الحقول */
+    }
+
+    /* تصغير الحقول وعناصرها */
+    .calculator-form label,
+    .booking-form label {
+        font-size: 0.9em; /* تصغير خط الليبل */
+        margin-bottom: 3px;
     }
 
     .calculator-form input,
     .calculator-form select,
     .booking-form input,
     .booking-form select {
-        width: 100%; /* جعل الحقول بعرض كامل لسهولة الاستخدام */
-        box-sizing: border-box; /* لضمان عدم تجاوز العرض 100% مع البادنج */
+        width: 100%; 
+        box-sizing: border-box; 
+        padding: 8px; /* ✅ تصغير بادنج الحقول */
+        font-size: 0.9em; /* ✅ تصغير حجم خط الحقول */
     }
 
-    /* جعل زر الإرسال والحساب أكبر وواضحًا */
+    /* تصغير زر الإرسال والحساب */
     .calculator-form button,
-    .booking-form button {
+    .booking-form button,
+    .booking-send-btn {
         width: 100%; 
-        padding: 15px;
-        font-size: 1.1em;
+        padding: 12px; /* ✅ تصغير بادنج الزر */
+        font-size: 1em; /* ✅ تصغير حجم خط الزر */
+        margin-top: 5px;
     }
     
-    /* 4. تنسيق الجداول (لحل مشكلة عرض الجداول الكبيرة) */
+    /* 5. تنسيق الجداول (الأكثر صغراً) */
     
     .price-table-container {
-        /* جعل الحاوية قابلة للتمرير أفقيًا إذا كان الجدول كبيرًا */
         overflow-x: auto; 
     }
     
     .price-table-container table {
-        /* ضمان أن الجدول لا يزال قابلاً للعرض بشكل مناسب */
-        width: 500px; /* قيمة ثابتة أكبر من الشاشة، مما يجبر التمرير */
-        min-width: 100%; /* إذا كانت 100% كافية، سيتم استخدامها */
+        /* إبقاء العرض للسماح بالتمرير إذا لزم الأمر */
+        min-width: 100%; 
     }
     
     .price-table-container th, 
     .price-table-container td {
-        padding: 8px; /* تقليل البادنج داخل الخلايا */
-        font-size: 0.9em;
+        padding: 6px; /* ✅ تصغير بادنج الخلايا */
+        font-size: 0.85em; /* ✅ تصغير حجم خط الجدول */
     }
+    
 }
