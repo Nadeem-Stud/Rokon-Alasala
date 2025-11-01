@@ -91,6 +91,8 @@ const hotelPrices = {
     ]
 };
 
+
+
 // =======================================================
 // ثانياً: وظائف التنقل
 // =======================================================
@@ -170,7 +172,7 @@ function calculateTripPrice(city) {
     resultBox.innerHTML = `
         <h3>السعر المحتسب (لشخص واحد):</h3>
         <div class="result-row">
-            <span>السعر الإجمالي للشخص الواحد:</span>
+            <span>السعر للشخص في الغرفةالمزدوجة:</span>
             <strong>${totalCostPerPerson.toFixed(2)} دينار</strong>
         </div>
         <div class="result-row result-note">
@@ -466,61 +468,8 @@ function populateBatumiTbilisiPrices() {
 }
 
 
-/**
- * تعبئة صندوق تفاصيل الرحلة لكل مدينة
- */
-function populateTripDetails(city) {
-    const detailsBox = document.getElementById(`${city}-details-box`);
-    if (!detailsBox) return;
+// ** دالة populateTripDetails (سابقاً) تم حذفها بالكامل بناءً على طلبك **
 
-    let title;
-    let details;
-    const commonItems = [
-        "تذاكر الطيران الدولية (ذهاب وإياب)",
-        "الاستقبال والتوديع في المطار",
-        "جولات سياحية يومية مع مرشد خاص",
-        "تأمين صحي للسفر (لبعض الوجهات)",
-        "جميع الضرائب والرسوم"
-    ];
-
-    switch(city) {
-        case 'istanbul':
-        case 'antalya':
-        case 'trabzon':
-        case 'cairo':
-        case 'beirut':
-        case 'batumi':
-            // Logic for existing cities
-            title = "ماذا يشمل عرض " + city.charAt(0).toUpperCase() + city.slice(1) + "؟";
-            details = commonItems; 
-            break;
-        case 'tbilisi':
-            title = "عرض تبليسي (8 أيام / 7 ليالي) - الرحيل كل جمعة";
-            details = [...commonItems, "إقامة في الفندق المختار", "وجبات الطعام حسب الباقة المختارة"];
-            break;
-        case 'batumiTbilisi':
-            // ⭐️ تفاصيل الباقة المدمجة ⭐️
-            title = "عرض باتومي وتبليسي المدمج (9 أيام / 8 ليالي)";
-            details = [
-                ...commonItems, 
-                "إقامة 4 ليالي في فندق باتومي و 4 ليالي في فندق تبليسي",
-                "وجبات الطعام حسب الباقة المختارة",
-                "جميع التنقلات بين المدن وجولات سياحية"
-            ];
-            break;
-        default:
-            return;
-    }
-
-    let listHTML = details.map(item => `<li>${item}</li>`).join('');
-
-    detailsBox.innerHTML = `
-        <h4>${title}</h4>
-        <ul>
-            ${listHTML}
-        </ul>
-    `;
-}
 
 // =======================================================
 // سادساً: وظيفة إرسال الطلب عبر واتساب
@@ -565,7 +514,7 @@ function sendInquiryEmail(city) {
         finalPrice = priceElement.textContent.trim();
     }
     
-    const whatsappNumber = "962770000000"; 
+    const whatsappNumber = "962777938441"; 
 
     const message = `
 *طلب حجز رحلة سياحية*
@@ -648,16 +597,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ⭐️ تعبئة الجدول الجديد ⭐️
     populateBatumiTbilisiPrices();
     
-    // تعبئة صناديق تفاصيل الرحلة لجميع المدن
-    populateTripDetails('istanbul');
-    populateTripDetails('antalya');
-    populateTripDetails('trabzon');
-    populateTripDetails('cairo');
-    populateTripDetails('beirut');
-    populateTripDetails('batumi');
-    populateTripDetails('tbilisi');
-    // ⭐️ تعبئة التفاصيل الجديدة ⭐️
-    populateTripDetails('batumiTbilisi');
+    // ** استدعاءات populateTripDetails محذوفة هنا **
     
     // تحديث النتائج الأولية
     setTimeout(() => {

@@ -364,30 +364,63 @@ body {
 /* ======================================================= */
 @media (max-width: 992px) {
     
-    .city-layout {
-        flex-direction: column; 
-        gap: 30px;
-        padding: 0;
-    }
-    
-    .prices-table-container,
-    .calculator-container,
-    .trip-details-box {
-        flex: unset; 
-        width: 100%;
-        padding: 25px;
-        border-right: none; 
-        border-top: 5px solid var(--gold-deep); /* شريط ذهبي علوي في الجوال */
-    }
-    
-    #logo {
-        position: static;
-        transform: none;
-        margin-bottom: 15px;
-        width: 100px;
+    /* 1. إخفاء رأس الصفحة بالكامل عند الفتح من الجوال */
+    #main-header {
+        display: none !important;
     }
 
+    /* 2. تعديل عرض الشبكة لأزرار الصفحة الرئيسية */
+    .buttons-container {
+        grid-template-columns: 1fr; /* عمود واحد فقط في الجوال */
+        gap: 15px;
+        padding: 20px 15px;
+    }
+    
+    /* 3. تعديل حجم النص في الأزرار */
+    .buttons-container button {
+        font-size: 1.1em;
+        padding: 15px 10px;
+    }
+
+    /* 4. تعديل عرض صفحات المدن (الحاسبة والتفاصيل) لتصبح عمود واحد */
+    .city-layout {
+        grid-template-columns: 1fr; /* عرض عمود واحد متكدس */
+        gap: 20px;
+    }
+    
+    /* 5. ضبط ترتيب ظهور العناصر: الحاسبة/التفاصيل أولاً، ثم الجداول إذا وجدت */
+    
+    /* لكل المدن التي الحاسبة فيها أولاً (اسطنبول، أنطاليا، إلخ) */
+    .calculator-container {
+        order: 1; /* تبقى في المقدمة */
+        padding: 20px;
+    }
+    
+    /* بالنسبة لصفحات مثل تبليسي وباتومي المدمجة التي تبدأ بالجدول، نعكس الترتيب لتبدأ بالحاسبة */
+    #tbilisi-prices-table-container,
+    #batumiTbilisi-prices-table-container {
+        order: 2; /* وضع الجداول أسفل الحاسبة في الجوال */
+    }
+    
+    /* بالنسبة لصفحات تبليسي وباتومي المدمجة، الحاسبة فيها هي البوكس الذي يحتوي على "السعر يشمل" في الأعلى، لذا نضمن أن الحاسبة تأتي أولاً */
+    #tbilisi-page .calculator-container,
+    #batumiTbilisi-page .calculator-container {
+        order: 1; /* تأكد من أن الحاسبة تظهر أولاً في الجوال */
+    }
+    
+
+    /* 6. تصغير حجم العناوين لملائمة شاشة الجوال */
     .city-header h2 {
         font-size: 1.8em;
+    }
+    
+    /* 7. تصغير حجم الجداول وتسهيل التمرير */
+    .prices-table-container {
+        overflow-x: auto; /* يسمح بالتمرير الأفقي للجداول الطويلة */
+        padding: 15px 10px;
+    }
+
+    .prices-table {
+        min-width: 700px; /* ضمان عرض أدنى للجدول لكي لا تتكدس الأعمدة */
     }
 }
